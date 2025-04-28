@@ -11,7 +11,7 @@ import {createStackOutputParameter, getGlobalName} from "./common";
 
 
 export interface Mdf4InsightsStackProps extends cdk.StackProps {
-
+    readonly inputBucketLifecycleRules?: cdk.aws_s3.LifecycleRule[];
 }
 
 
@@ -98,7 +98,8 @@ export class Mdf4InsightsStack extends BaseStack {
             objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_ENFORCED,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
             autoDeleteObjects: true,
-            versioned: false
+            versioned: false,
+            lifecycleRules: props.inputBucketLifecycleRules
         });
         mdfInputBucket.grantRead(this.appRole);
         createStackOutputParameter(this, ctx, {
