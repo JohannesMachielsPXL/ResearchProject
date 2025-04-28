@@ -1,0 +1,13 @@
+{
+  "name": "mdf4-insights",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "infrastructure/aws/"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.13.14"
+  }
+}
