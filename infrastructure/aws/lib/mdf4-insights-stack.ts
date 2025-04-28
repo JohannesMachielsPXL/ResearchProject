@@ -121,8 +121,7 @@ export class Mdf4InsightsStack extends BaseStack {
         // Upload the DBC file to the input bucket
         new s3deploy.BucketDeployment(this, 'dbc-file-deployment', {
             destinationBucket: mdfInputBucket,
-            sources: [s3deploy.Source.asset(`${__dirname}/../../shared/`)],
-            destinationKeyPrefix: 'shared/',
+            sources: [s3deploy.Source.asset(`${__dirname}/../../shared/assets`)],
         });
 
         // Allow the input bucket to invoke the Lambda
